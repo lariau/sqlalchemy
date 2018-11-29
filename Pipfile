@@ -13,6 +13,8 @@ flask = "*"
 gunicorn = "*"
 flask-sqlalchemy = "*"
 flask-script = "*"
+flask-marshmallow = "*"
+marshmallow-sqlalchemy = "*"
 
 [requires]
 python_version = "3.7"
