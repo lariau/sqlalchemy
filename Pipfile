@@ -9,6 +9,10 @@ python-dotenv = "*"
 [packages]
 psycopg2 = "*"
 flask-migrate = "*"
+flask = "*"
+gunicorn = "*"
+flask-sqlalchemy = "*"
+flask-script = "*"
 
 [requires]
 python_version = "3.7"
