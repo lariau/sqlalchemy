@@ -5,7 +5,7 @@ try:
 except:
     pass
 
-from flask import Flask, request, Response
+from flask import Flask, request, Response, render_template
 from config import Config
 
 app = Flask(__name__)
@@ -21,7 +21,13 @@ from schemas import products_schema, product_schema
 
 @app.route('/')
 def hello():
-    return "Hello World!"
+    products = db.session.query(Product).all()
+    return render_template('home.html', products=products)
+
+@app.route('/product/<int:id>', methods=['GET'])
+def product(id):
+    product = db.session.query(Product).get(id)
+    return render_template('products.html', product=product)
 
 @app.route('/api/v1/products',methods = ['GET','POST'])
 def products():
